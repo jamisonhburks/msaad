@@ -43,7 +43,7 @@ from .config import DEFAULT_CONFIG, MSAADConfig
 from .msaad import aad, beta_from_slope, loglog_slope, msaad, slope_from_beta
 from .noise import powerlaw_noise
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 __all__ = [
     "__version__",

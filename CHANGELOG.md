@@ -4,10 +4,11 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/), and the project aims to adhere
 to [Semantic Versioning](https://semver.org/).
 
-## [0.1.0] — 2025-09-12
+## [1.0.0] — 2026-08-14
 
-Initial public release: a clean, modular reference implementation of MSAAD
-(Algorithms 18(9):577, 2025).
+First PyPI release (`pip install msaad`): a clean, modular reference
+implementation of MSAAD (Algorithms 18(9):577, 2025). The public API is small
+and considered stable.
 
 ### Added
 - Core `msaad` algorithm: coarse-graining, AAD, MSAAD curve, log–log slope, and

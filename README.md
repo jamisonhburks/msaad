@@ -1,5 +1,11 @@
 # msaad
 
+[![PyPI](https://img.shields.io/pypi/v/msaad.svg)](https://pypi.org/project/msaad/)
+[![Python versions](https://img.shields.io/pypi/pyversions/msaad.svg)](https://pypi.org/project/msaad/)
+[![CI](https://github.com/jamisonhburks/msaad/actions/workflows/ci.yml/badge.svg)](https://github.com/jamisonhburks/msaad/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![DOI](https://img.shields.io/badge/DOI-10.3390%2Fa18090577-blue.svg)](https://doi.org/10.3390/a18090577)
+
 **Multiscale Average Absolute Difference — a fast, nonparametric multiscale complexity feature for noisy wearable time series.**
 
 A clean, modular reference implementation of:
@@ -62,9 +68,15 @@ strongest at short scales, women at long scales).
 ## Install
 
 ```bash
-git clone <this-repo> && cd msaad
+pip install msaad
+```
+
+Or for development (tests, the reproduction pipeline, the tutorial):
+
+```bash
+git clone https://github.com/jamisonhburks/msaad.git && cd msaad
 python -m venv .venv && source .venv/bin/activate
-pip install -e .            # add ".[dev]" for tests; ".[reference]" to cross-check baselines
+pip install -e ".[dev]"     # add ".[reference]" to cross-check baselines vs neurokit2/antropy
 ```
 
 Requires Python ≥ 3.10. Every complexity metric (MSAAD **and** the KFD / sample
