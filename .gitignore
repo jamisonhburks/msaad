@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# DATA POLICY: never commit real participant wearable data.
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+data/synthetic/*
+!data/synthetic/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+results/figures/*
+!results/figures/.gitkeep
+notebooks/synthetic_demo/
+.DS_Store

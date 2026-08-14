@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software or its methods, please cite the paper below."
+title: "msaad: Multiscale Average Absolute Difference for noisy wearable time series"
+authors:
+  - family-names: Burks
+    given-names: Jamison H.
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/your-org/msaad"
+preferred-citation:
+  type: article
+  title: "Multiscale Average Absolute Difference (MSAAD): A Computationally Efficient and Nonparametric Adaptation of Line Length for Noisy, Uncontrolled Wearables Time Series"
+  authors:
+    - family-names: Burks
+      given-names: Jamison H.
+    - family-names: Hartogensis
+      given-names: Wendy
+    - family-names: Dilchert
+      given-names: Stephan
+    - family-names: Mason
+      given-names: Ashley E.
+    - family-names: Smarr
+      given-names: Benjamin L.
+  journal: "Algorithms"
+  year: 2025
+  volume: 18
+  issue: 9
+  start: 577
+  doi: "10.3390/a18090577"

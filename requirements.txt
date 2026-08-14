@@ -1,0 +1,17 @@
+# Pinned runtime dependencies for a reproducible environment.
+#
+# These are the exact versions the analysis was run and tested with. For an
+# editable install with looser (>=) bounds suitable for library reuse, see
+# pyproject.toml and run:  pip install -e .
+#
+# All complexity metrics (MSAAD + baselines) are implemented from scratch in
+# NumPy; the optional [reference] extra adds neurokit2/antropy only for tests
+# that cross-check our implementations against reference ones.
+numpy==2.3.5
+pandas==2.3.3
+scipy==1.16.3
+statsmodels==0.14.5
+matplotlib==3.10.6
+seaborn==0.13.2
+pyarrow==21.0.0
+tqdm==4.67.1
