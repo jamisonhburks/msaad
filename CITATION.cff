@@ -4,15 +4,17 @@ title: "msaad: Multiscale Average Absolute Difference for noisy wearable time se
 authors:
   - family-names: Burks
     given-names: Jamison H.
+    orcid: "https://orcid.org/0000-0003-4816-5704"
 version: 0.1.0
 license: MIT
-repository-code: "https://github.com/your-org/msaad"
+repository-code: "https://github.com/jamisonhburks/msaad"
 preferred-citation:
   type: article
   title: "Multiscale Average Absolute Difference (MSAAD): A Computationally Efficient and Nonparametric Adaptation of Line Length for Noisy, Uncontrolled Wearables Time Series"
   authors:
     - family-names: Burks
       given-names: Jamison H.
+      orcid: "https://orcid.org/0000-0003-4816-5704"
     - family-names: Hartogensis
       given-names: Wendy
     - family-names: Dilchert
