@@ -52,6 +52,10 @@ Issues = "https://github.com/jamisonhburks/msaad/issues"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+# Ship the PEP 561 marker so downstream type checkers (mypy, pyright) use our hints.
+msaad = ["py.typed"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"

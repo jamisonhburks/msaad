@@ -15,10 +15,15 @@ data (paper Sections 3.1, 4).
 
 from __future__ import annotations
 
+from collections.abc import Sequence
+
 import numpy as np
 
 from .coarsegrain import coarse_grain
 from .config import DEFAULT_CONFIG, MSAADConfig
+
+# Any ordered integer collection of scales — a range, list, tuple, or ndarray.
+Scales = Sequence[int] | np.ndarray
 
 __all__ = ["aad", "msaad", "loglog_slope", "beta_from_slope", "slope_from_beta"]
 
@@ -41,7 +46,7 @@ def aad(x: np.ndarray) -> float:
 
 def msaad(
     x: np.ndarray,
-    scales: tuple[int, ...] | np.ndarray | None = None,
+    scales: Scales | None = None,
     *,
     config: MSAADConfig = DEFAULT_CONFIG,
 ) -> np.ndarray:
@@ -66,9 +71,7 @@ def msaad(
     return np.array([aad(coarse_grain(x, int(s))) for s in scales])
 
 
-def loglog_slope(
-    curve: np.ndarray, scales: tuple[int, ...] | np.ndarray
-) -> float:
+def loglog_slope(curve: np.ndarray, scales: Scales) -> float:
     """Slope of ``log(MSAAD)`` vs. ``log(scale)`` by ordinary least squares.
 
     The slope characterizes how variability scales with resolution; for 1/fᵝ

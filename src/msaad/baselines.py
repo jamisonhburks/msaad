@@ -13,7 +13,7 @@ neurokit2 / antropy in the test suite.
 from __future__ import annotations
 
 import math
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 
 import numpy as np
 
@@ -138,7 +138,7 @@ def hurst_exponent(x: np.ndarray) -> float:
 def multiscale(
     x: np.ndarray,
     metric: Callable[[np.ndarray], float],
-    scales: tuple[int, ...] | np.ndarray,
+    scales: Sequence[int] | np.ndarray,
 ) -> np.ndarray:
     """Apply any single-scale ``metric`` to ``x`` coarse-grained at each scale.
 

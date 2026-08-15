@@ -16,7 +16,13 @@ from .config import COL_AWAKE, COL_PID, COL_TEMP
 
 REQUIRED_COLUMNS: tuple[str, ...] = (COL_TEMP, COL_AWAKE)
 
-__all__ = ["REQUIRED_COLUMNS", "load_participant", "iter_participants", "load_demographics"]
+__all__ = [
+    "REQUIRED_COLUMNS",
+    "NON_PARTICIPANT_STEMS",
+    "load_participant",
+    "iter_participants",
+    "load_demographics",
+]
 
 
 def load_participant(path: str | Path) -> pd.DataFrame:
@@ -29,11 +35,24 @@ def load_participant(path: str | Path) -> pd.DataFrame:
     return df
 
 
+#: Parquet files in a data directory that are not participant records and must
+#: be skipped when iterating (e.g. the demographics table).
+NON_PARTICIPANT_STEMS: frozenset[str] = frozenset({"demographics"})
+
+
 def iter_participants(
-    directory: str | Path, *, pattern: str = "P*.parquet"
+    directory: str | Path, *, pattern: str = "*.parquet"
 ) -> Iterator[tuple[str, pd.DataFrame]]:
-    """Yield ``(participant_id, frame)`` for every matching parquet in ``directory``."""
+    """Yield ``(participant_id, frame)`` for every participant parquet in ``directory``.
+
+    The default ``*.parquet`` glob works for real exports (hashed-id filenames)
+    and synthetic files (``P0000`` …) alike; non-participant tables such as
+    ``demographics.parquet`` are skipped (see :data:`NON_PARTICIPANT_STEMS`), so
+    pointing this at a data directory "just works" without a custom pattern.
+    """
     for path in sorted(Path(directory).glob(pattern)):
+        if path.stem in NON_PARTICIPANT_STEMS:
+            continue
         yield path.stem, load_participant(path)
 
 

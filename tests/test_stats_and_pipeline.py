@@ -8,9 +8,19 @@ import numpy as np
 
 from msaad.cohorts import age_scale_spearman, compare_diabetes_cohorts
 from msaad.config import MSAADConfig
+from msaad.io import iter_participants
 from msaad.pipeline import extract_age_features, extract_diabetes_features
 from msaad.stats_utils import cohen_d, dunn_test
 from msaad.synthetic import generate_dataset
+
+
+def test_iter_participants_skips_demographics(tmp_path):
+    """The default glob must not mis-load demographics.parquet as a participant."""
+    generate_dataset(4, tmp_path / "syn", n_days=2, seed=0)
+    assert (tmp_path / "syn" / "demographics.parquet").exists()
+    ids = [pid for pid, _ in iter_participants(tmp_path / "syn")]  # default pattern
+    assert "demographics" not in ids
+    assert len(ids) == 4
 
 
 def test_cohen_d_sign():
